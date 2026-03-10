@@ -53,5 +53,13 @@ app.post('/api/bookings/create', async (req, res) => {
         res.status(500).json({ success: false });
     }
 });
+app.get('/api/bookings/all', async (req, res) => {
+  try {
+    const bookings = await Booking.find(); // This fetches everything from MongoDB
+    res.status(200).json(bookings);
+  } catch (err) {
+    res.status(500).json({ error: "Failed to fetch bookings" });
+  }
+});
 
 app.listen(PORT, () => console.log(`🚀 Server on port ${PORT}`));
