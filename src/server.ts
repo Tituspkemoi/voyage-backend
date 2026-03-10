@@ -13,7 +13,7 @@ console.log("Attempting to connect with URI:", process.env.MONGODB_URI?.split('@
 // This logs only the cluster address, keeping your password safe in the console.
 
 const app = express();
-app.use(cors());
+app.use(cors()); // This allows all websites to talk to your backend
 app.use(express.json());
 
 const PORT = process.env.PORT || 5001;
